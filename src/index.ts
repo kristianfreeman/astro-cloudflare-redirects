@@ -2,17 +2,16 @@ import type { AstroIntegration } from "astro"
 import fs from "fs/promises"
 import { cloudflareRedirect } from "vite-plugin-cloudflare-redirect"
 
-export default function astroCloudflareRedirects({
-  redirectsFile
-}: {
+type RedirectsConfig = {
   redirectsFile?: string
-}): AstroIntegration {
+}
+
+export default function astroCloudflareRedirects(options?: RedirectsConfig): AstroIntegration {
   return {
     name: "Cloudflare Redirects",
     hooks: {
       'astro:config:setup': async ({ logger, updateConfig }) => {
-        let file = redirectsFile || "public/_redirects"
-        let config = redirectsFile ? { redirectsFile: file } : {}
+        let file = options?.redirectsFile || "public/_redirects"
 
         try {
           await fs.stat(file)
@@ -20,7 +19,9 @@ export default function astroCloudflareRedirects({
           updateConfig({
             vite: {
               plugins: [
-                cloudflareRedirect(config)
+                cloudflareRedirect({
+                  redirectsFile: file
+                })
               ]
             }
           })
