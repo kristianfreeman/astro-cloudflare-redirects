@@ -1,6 +1,6 @@
 {
   "name": "astro-cloudflare-redirects",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "",
   "type": "module",
   "types": "./dist/index.d.ts",
@@ -15,8 +15,13 @@
     "dist"
   ],
   "keywords": [
+    "astro-component",
     "astro-integration",
-    "cloudflare"
+    "astrolib",
+    "cloudflare",
+    "redirects",
+    "tooling",
+    "withastro"
   ],
   "author": "",
   "license": "ISC",
