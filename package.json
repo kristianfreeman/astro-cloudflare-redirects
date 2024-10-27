@@ -1,7 +1,8 @@
 {
   "name": "astro-cloudflare-redirects",
   "version": "1.0.0",
-  "description": "",
+  "description": "Plugin for generating redirects in Astro based on the _redirects file specification from Cloudflare",
+  "homepage": "https://kristianfreeman.com/astro-cloudflare-redirects",
   "type": "module",
   "types": "./dist/index.d.ts",
   "scripts": {
